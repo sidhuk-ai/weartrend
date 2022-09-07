@@ -9,7 +9,6 @@ export default function Home() {
       <Head>
         <title>WearTrend - Wear the Trend</title>
         <meta name="description" content="WearTrend.com - Wear the Trend" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">

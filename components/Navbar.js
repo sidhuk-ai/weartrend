@@ -3,6 +3,7 @@ import React from 'react'
 // import Image from 'next/image'
 import { AiOutlineShoppingCart, AiOutlineClose, AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai'
 import { BsFillBagCheckFill } from 'react-icons/bs'
+import { MdAccountCircle } from 'react-icons/md'
 import { useRef } from 'react'
 
 const Navbar = ({cart, addToCart, removeFromCart, clearCart, subTotal}) => {
@@ -26,7 +27,7 @@ const Navbar = ({cart, addToCart, removeFromCart, clearCart, subTotal}) => {
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
-          <span className="ml-3 text-xl">WearTrend</span>
+          <span className="ml-3 text-xl">ShopTrend</span>
         </a></Link>
       </div>
       <div className="nav">
@@ -37,10 +38,11 @@ const Navbar = ({cart, addToCart, removeFromCart, clearCart, subTotal}) => {
           <Link href={'/stickers'}><a><li>Stickers</li></a></Link>
         </ul>
       </div>
-      <div onClick={toggleCart} className='cart absolute right-0 top-2 mx-5'>
-        <AiOutlineShoppingCart className='text-xl md:text-4xl cursor-pointer'/>
+      <div className='cart absolute right-0 top-3 mx-5 flex'>
+        <Link href={'/login'}><MdAccountCircle className='text-xl md:text-3xl cursor-pointer mx-2'/></Link>
+        <AiOutlineShoppingCart onClick={toggleCart} className='text-xl md:text-3xl cursor-pointer'/>
       </div>
-      <div ref={ref} className={`sidebar absolute px-8 py-10 bg-[#6366f1] right-0 top-0 w-80 h-[100vh] transform transition-transform ${Object.keys(cart).length !== 0? 'translate-x-0':'translate-x-full'}translate-x-0`}>
+      <div ref={ref} className={`sidebar absolute px-8 py-10 bg-[#6366f1] right-0 top-0 w-80 h-[100vh] transform transition-transform ${Object.keys(cart).length !== 0? 'translate-x-0':'translate-x-full'}`}>
         <h1 className='font-bold text-xl text-center'>Shopping Cart</h1>
         <span onClick={toggleCart} className="absolute top-2 right-2 font-bold cursor-pointer text-2xl"><AiOutlineClose /></span>
         <ol className='list-decimal font-semibold'>
